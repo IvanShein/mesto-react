@@ -1,0 +1,12 @@
+.cards__item {
+  margin: 0;
+  padding: 0;
+  background-color: #FFF;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 282px;
+  max-height: 362px;
+  box-sizing: border-box;
+  list-style: none;
+  position: relative;
+}

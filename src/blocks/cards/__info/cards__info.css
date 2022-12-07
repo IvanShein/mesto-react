@@ -1,0 +1,7 @@
+.cards__info {
+  display: flex;
+  box-sizing: border-box;
+  padding: 22px 0 24px 21px;
+  justify-content: space-between;
+  max-width: 262px;
+}

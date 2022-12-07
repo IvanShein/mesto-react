@@ -1,0 +1,9 @@
+.page {
+  background-color: #000;
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #FFF;
+  min-width: 320px;
+  text-rendering: optimizeLegibility;
+}

@@ -1,0 +1,13 @@
+.popup__form_type_delete-confirmation {
+  display: flex;
+  flex-direction: column;
+  padding: 1px 21px 0 21px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .popup__form_type_delete-confirmation {
+    padding: 20px 36px 0 36px;
+    margin: 0 auto;
+  }
+}

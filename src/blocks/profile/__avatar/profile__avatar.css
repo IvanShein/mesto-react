@@ -1,0 +1,21 @@
+.profile__avatar {
+    margin: 0 auto;
+    padding: 0;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-image: url(../../../images/pensil.svg);
+    background-size: 26px 26px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .profile__avatar:hover {
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .profile__avatar {
+      margin: 0;
+    }
+  }

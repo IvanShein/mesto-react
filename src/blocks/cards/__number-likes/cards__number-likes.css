@@ -1,0 +1,14 @@
+.cards__number-likes {
+  font-size: 13px;
+  line-height: 1.21;
+  text-align: center;
+  align-self: center;
+  margin: 0 auto;
+  padding: 0;
+  font-style: normal;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 22px;
+}

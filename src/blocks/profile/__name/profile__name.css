@@ -1,0 +1,15 @@
+.profile__name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 7px 28px;
+   }
+
+@media screen and (min-width: 1024px) {
+  .profile__name {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 2px 243px 6px 28px;
+  }
+}

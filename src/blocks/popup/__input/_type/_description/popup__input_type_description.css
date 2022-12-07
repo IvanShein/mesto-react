@@ -1,0 +1,6 @@
+@media screen and (min-width: 1024px) {
+  .popup__input_type_description {
+    padding: 0 0 10px 0;
+    margin: 0;
+  }
+}
