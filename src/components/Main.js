@@ -2,15 +2,15 @@ import React from 'react';
 
 class Main extends React.Component {
   
-  handleEditAvatarClick() {
+  handleEditAvatarClick = () => {
     document.querySelector('.popup_type_edit-avatar').classList.add('popup_opened');
   };
 
-  handleEditProfileClick() {
+  handleEditProfileClick = () => {
     document.querySelector('.popup_type_edit').classList.add('popup_opened');
   };
 
-  handleAddPlaceClick() {
+  handleAddPlaceClick = () => {
     document.querySelector('.popup_type_add').classList.add('popup_opened');
   };
   

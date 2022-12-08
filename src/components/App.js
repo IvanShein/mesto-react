@@ -2,53 +2,51 @@ import React from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import PopupWithForm from './PopupWithForm';
 
 function App() {
   return (
-    <body className="page">
+    <div className="page">
       <Header />
       <Main />
       <Footer />
 
-      <div className="popup popup_type_edit">
-        <div className="popup__container">
-          <h2 className="popup__title">Редактировать профиль</h2>
-          <form name="editProfile" action="#" className="popup__form popup__form_type_edit" novalidate>
-            <input className="popup__input popup__input_type_name" id="name" name="name" type="text" placeholder="Имя" minlength="2" maxlength="40" required />
-            <span className="popup__error popup__error_visible name-error"></span>
-            <input className="popup__input popup__input_type_description" id="about" name="about" type="text" placeholder="Вид деятельности" minlength="2" maxlength="200" required />
-            <span className="popup__error popup__error_visible about-error"></span>
-            <button type="submit" className="popup__button popup__button_type_save-profile">Сохранить</button>
-          </form>
-          <button type="button" aria-label="Кнопка закрыть окно редактирования профиля" className="popup__close-button popup__close-button_type_edit"></button>
-        </div>
-      </div>
+      <PopupWithForm
+        name="edit"
+        title="Редактировать профиль"
+        buttonText="Сохранить"
+        children={<>
+          <input className="popup__input popup__input_type_name" id="name" name="name" type="text" placeholder="Имя" minLength="2" maxLength="40" required />
+          <span className="popup__error popup__error_visible name-error"></span>
+          <input className="popup__input popup__input_type_description" id="about" name="about" type="text" placeholder="Вид деятельности" minLength="2" maxLength="200" required />
+          <span className="popup__error popup__error_visible about-error"></span> </>} />
 
-      <div className="popup popup_type_edit-avatar">
-        <div className="popup__container popup__container_type_avatar">
-          <h2 className="popup__title">Обновить аватар</h2>
-          <form name="editAvatar" action="#" className="popup__form popup__form_type_edit-avatar" novalidate>
-            <input className="popup__input popup__input_type_avatar" id="avatar" name="avatar" type="url" placeholder="Ссылка на новое фото профиля" required />
-            <span className="popup__error popup__error_visible avatar-error"></span>
-            <button type="submit" className="popup__button popup__button_type_save-avatar">Сохранить</button>
-          </form>
-          <button type="button" aria-label="Кнопка закрыть окно редактирования фото пользователя" className="popup__close-button popup__close-button_type_edit-avatar"></button>
-        </div>
-      </div>
+      <PopupWithForm
+        name="edit-avatar"
+        title="Обновить аватар"
+        buttonText="Сохранить"
+        children={<>
+          <input className="popup__input popup__input_type_avatar" id="avatar" name="avatar" type="url" placeholder="Ссылка на новое фото профиля" required />
+          <span className="popup__error popup__error_visible avatar-error"></span> </>} />
 
-      <div className="popup popup_type_add">
-        <div className="popup__container">
-          <h2 className="popup__title">Новое место</h2>
-          <form name="newPlace" action="#" className="popup__form popup__form_type_add" novalidate>
-            <input className="popup__input popup__input_type_place" id="place" name="name" type="text" placeholder="Место" minlength="2" maxlength="30" required />
-            <span className="popup__error popup__error_visible place-error"></span>
-            <input className="popup__input popup__input_type_foto-link" id="foto-link" name="link" type="url" placeholder="Ссылка на картинку" required />
-            <span className="popup__error popup__error_visible foto-link-error"></span>
-            <button type="submit" className="popup__button popup__button_type_add-card">Создать</button>
-          </form>
-          <button type="button" aria-label="Кнопка закрыть окно редактирования профиля" className="popup__close-button popup__close-button_type_add"></button>
-        </div>
-      </div>
+
+      <PopupWithForm
+        name="add"
+        title="Новое место"
+        buttonText="Создать"
+        children={<>
+          <input className="popup__input popup__input_type_place" id="place" name="name" type="text" placeholder="Место" minLength="2" maxLength="30" required />
+          <span className="popup__error popup__error_visible place-error"></span>
+          <input className="popup__input popup__input_type_foto-link" id="foto-link" name="link" type="url" placeholder="Ссылка на картинку" required />
+          <span className="popup__error popup__error_visible foto-link-error"></span> </>} />
+
+
+      <PopupWithForm
+        name="delete-confirmation"
+        title="Вы уверены?"
+        buttonText="Да"
+        children={<></>} />
+
 
       <div className="popup popup_type_foto">
         <div className="popup__container-foto">
@@ -61,20 +59,10 @@ function App() {
         </div>
       </div>
 
-      <div className="popup popup_type_delete-confirmation">
-        <div className="popup__container popup__container_type_delete-confirmation">
-          <h2 className="popup__title">Вы уверены?</h2>
-          <form name="delete-confirmation" action="#" className="popup__form popup__form_type_delete-confirmation" novalidate>
-            <button type="submit" className="popup__button popup__button_type_delete-confirmation">Да</button>
-          </form>
-          <button type="button" aria-label="Кнопка закрыть окно редактирования фото пользователя" className="popup__close-button popup__close-button_type_delete-confirmation"></button>
-        </div>
-      </div>
-
       <template id="card">
         <li id="container" className="cards__item">
           <a href="#" className="cards__foto-button">
-            <img className="cards__image" src="<%=require('./images/no_foto.jpg')%>" onerror="this.src='<%=require('./images/no_foto.jpg')%>'" alt="Изображение места" />
+            <img className="cards__image" src="<%=require('./images/no_foto.jpg')%>" onError="this.src='<%=require('./images/no_foto.jpg')%>'" alt="Изображение места" />
           </a>
           <div className="cards__info">
             <h2 className="cards__title"></h2>
@@ -93,7 +81,7 @@ function App() {
         </li>
       </template>
 
-    </body>
+    </div>
   )
 };
 
