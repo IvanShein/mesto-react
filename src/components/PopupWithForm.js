@@ -7,7 +7,7 @@ class PopupWithForm extends React.Component {
 
   render() {
     return (
-      <div className={`popup popup_type_${this.props.name}`}>
+      <div className={`popup popup_type_${this.props.name} ${this.props.isOpen ? 'popup_opened' : ''}`}>
         <div className={`popup__container popup__container_type_${this.props.name}`}>
           <h2 className="popup__title">{this.props.title}</h2>
           <form name={this.props.title} action="#" className={`popup__form popup__form_type_${this.props.name}`} noValidate>
