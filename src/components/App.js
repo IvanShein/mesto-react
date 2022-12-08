@@ -4,8 +4,6 @@ import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
-import api from "../utils/Api.js";
-
 
 function App() {
 
@@ -65,7 +63,6 @@ function App() {
           <input className="popup__input popup__input_type_avatar" id="avatar" name="avatar" type="url" placeholder="Ссылка на новое фото профиля" required />
           <span className="popup__error popup__error_visible avatar-error"></span> </>} />
 
-
       <PopupWithForm
         name="add"
         title="Новое место"
@@ -78,7 +75,6 @@ function App() {
           <input className="popup__input popup__input_type_foto-link" id="foto-link" name="link" type="url" placeholder="Ссылка на картинку" required />
           <span className="popup__error popup__error_visible foto-link-error"></span> </>} />
 
-
       <PopupWithForm
         name="delete-confirmation"
         title="Вы уверены?"
@@ -86,29 +82,6 @@ function App() {
         children={<></>} />
 
       <ImagePopup />
-
-
-      <template id="card">
-        <li id="container" className="cards__item">
-          <a href="#" className="cards__foto-button">
-            <img className="cards__image" src="../images/no_foto.jpg" alt="Изображение места" />
-          </a>
-          <div className="cards__info">
-            <h2 className="cards__title"></h2>
-            <div className="cards__like-container">
-              <button type="button"
-                aria-label="Кнопка нравится место - поставить и убрать лайк"
-                className="cards__like-button">
-              </button>
-              <div className="cards__number-likes">0</div>
-            </div>
-            <button type="button"
-              aria-label="Кнопка удаления карточки"
-              className="cards__trash-button">
-            </button>
-          </div>
-        </li>
-      </template>
 
     </div>
   )
