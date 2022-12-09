@@ -4,14 +4,14 @@ import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
+import { useState } from 'react';
 
 function App() {
 
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState(null);
-
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   const handleEditProfileClick = () => {
     setIsEditProfilePopupOpen(true);
@@ -55,11 +55,12 @@ function App() {
         buttonText="Сохранить"
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
-        children={<>
-          <input className="popup__input popup__input_type_name" id="name" name="name" type="text" placeholder="Имя" minLength="2" maxLength="40" required />
-          <span className="popup__error popup__error_visible name-error"></span>
-          <input className="popup__input popup__input_type_description" id="about" name="about" type="text" placeholder="Вид деятельности" minLength="2" maxLength="200" required />
-          <span className="popup__error popup__error_visible about-error"></span> </>} />
+      >
+        <input className="popup__input popup__input_type_name" id="name" name="name" type="text" placeholder="Имя" minLength="2" maxLength="40" required />
+        <span className="popup__error popup__error_visible name-error"></span>
+        <input className="popup__input popup__input_type_description" id="about" name="about" type="text" placeholder="Вид деятельности" minLength="2" maxLength="200" required />
+        <span className="popup__error popup__error_visible about-error"></span>
+      </PopupWithForm>
 
       <PopupWithForm
         name="edit-avatar"
@@ -67,9 +68,10 @@ function App() {
         buttonText="Сохранить"
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
-        children={<>
-          <input className="popup__input popup__input_type_avatar" id="avatar" name="avatar" type="url" placeholder="Ссылка на новое фото профиля" required />
-          <span className="popup__error popup__error_visible avatar-error"></span> </>} />
+      >
+        <input className="popup__input popup__input_type_avatar" id="avatar" name="avatar" type="url" placeholder="Ссылка на новое фото профиля" required />
+        <span className="popup__error popup__error_visible avatar-error"></span>
+      </PopupWithForm>
 
       <PopupWithForm
         name="add"
@@ -77,11 +79,12 @@ function App() {
         buttonText="Создать"
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopups}
-        children={<>
-          <input className="popup__input popup__input_type_place" id="place" name="name" type="text" placeholder="Место" minLength="2" maxLength="30" required />
-          <span className="popup__error popup__error_visible place-error"></span>
-          <input className="popup__input popup__input_type_foto-link" id="foto-link" name="link" type="url" placeholder="Ссылка на картинку" required />
-          <span className="popup__error popup__error_visible foto-link-error"></span> </>} />
+      >
+        <input className="popup__input popup__input_type_place" id="place" name="name" type="text" placeholder="Место" minLength="2" maxLength="30" required />
+        <span className="popup__error popup__error_visible place-error"></span>
+        <input className="popup__input popup__input_type_foto-link" id="foto-link" name="link" type="url" placeholder="Ссылка на картинку" required />
+        <span className="popup__error popup__error_visible foto-link-error"></span>
+      </PopupWithForm>
 
       <PopupWithForm
         name="delete-confirmation"
@@ -94,7 +97,7 @@ function App() {
         onClose={closeAllPopups}
       />
 
-    </div>
+    </div >
   )
 };
 

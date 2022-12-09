@@ -13,7 +13,7 @@ class Card extends React.Component {
     return (
       <li key={this.props.card._id} id="container" className="cards__item">
         <a href="#" className="cards__foto-button" onClick={this.handleClick}>
-          <img className="cards__image" src={this.props.card.link} alt="Изображение места" />
+          <img className="cards__image" src={this.props.card.link} alt={this.props.card.name} />
         </a>
         <div className="cards__info">
           <h2 className="cards__title">{this.props.card.name}</h2>
