@@ -5,10 +5,14 @@ class Card extends React.Component {
     super(props)
   };
 
+  handleClick = () => {
+    this.props.onCardClick(this.props.card);
+  }
+
   render() {
     return (
       <li key={this.props.card._id} id="container" className="cards__item">
-        <a href="#" className="cards__foto-button">
+        <a href="#" className="cards__foto-button" onClick={this.handleClick}>
           <img className="cards__image" src={this.props.card.link} alt="Изображение места" />
         </a>
         <div className="cards__info">

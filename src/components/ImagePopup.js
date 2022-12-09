@@ -7,11 +7,13 @@ class ImagePopup extends React.Component {
 
   render() {
     return (
-      <div className="popup popup_type_foto">
+      <div className={`popup popup_type_foto ${this.props.card ? "popup_opened" : ""}`}>
         <div className="popup__container-foto">
-          <img src="#" className="popup__foto" alt="Изображение места" />
-          <p className="popup__figcaption"></p>
-          <button type="button"
+          <img src={this.props.card ? this.props.card.link : ""} className="popup__foto" alt="Изображение места" />
+          <p className="popup__figcaption">{this.props.card ? this.props.card.name : ""}</p>
+          <button
+            onClick={this.props.onClose}
+            type="button"
             aria-label="Кнопка закрыть окно просмотра фотографии"
             className="popup__close-button popup__close-button_type_foto">
           </button>
