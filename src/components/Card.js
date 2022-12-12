@@ -11,6 +11,10 @@ class Card extends React.Component {
     this.props.onCardClick(this.props.card);
   }
 
+  handleLikeClick = () => {
+    this.props.onCardLike(this.props.card);
+  }
+
   render() {
     const isOwn = this.props.card.owner._id === this.context._id;
     const cardDeleteButtonClassName = (
@@ -31,7 +35,8 @@ class Card extends React.Component {
           <div className="cards__like-container">
             <button type="button"
               aria-label="Кнопка нравится место - поставить или убрать лайк"
-              className={cardLikeButtonClassName}>
+              className={cardLikeButtonClassName}
+              onClick={this.handleLikeClick}>
             </button>
             <div className="cards__number-likes">{this.props.card.likes.length}</div>
           </div>

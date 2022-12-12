@@ -33,7 +33,11 @@ class Main extends React.Component {
           <ul className="cards">
 
             {this.props.cards.map((card) => (
-              <Card card={card} key={card._id} onCardClick={this.props.onCardClick} />
+              <Card card={card}
+                key={card._id}
+                onCardClick={this.props.onCardClick}
+                onCardLike={this.props.onCardLike}
+              />
             ))}
 
           </ul>
