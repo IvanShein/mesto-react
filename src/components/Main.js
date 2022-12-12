@@ -9,8 +9,7 @@ class Main extends React.Component {
   };
 
   render() {
-    console.log(this.context);
-    return (
+     return (
       <main className="content">
         <section className="profile">
           <div className="profile__avatar-container" >
@@ -37,6 +36,7 @@ class Main extends React.Component {
                 key={card._id}
                 onCardClick={this.props.onCardClick}
                 onCardLike={this.props.onCardLike}
+                onCardDelete={this.props.onCardDelete}
               />
             ))}
 
