@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import api from '../utils/Api.js';
 import EditProfilePopup from './EditProfilePopup';
+import EditAvatarPopup from './EditAvatarPopup';
 
 function App() {
 
@@ -72,15 +73,27 @@ function App() {
 
   const handleUpdateUser = (userInformation) => {
     api.sendUserInformation(userInformation.name, userInformation.about)
-        .then((userInformation) => {
-            setCurrentUser(userInformation);
-            closeAllPopups();
-        })
-        .catch((error) => {
-          console.log(`К сожалению, возникла ошибка: ${error}`);
-        })
+      .then((userInformation) => {
+        setCurrentUser(userInformation);
+        closeAllPopups();
+      })
+      .catch((error) => {
+        console.log(`К сожалению, возникла ошибка: ${error}`);
+      })
 
-};
+  };
+
+  const handleUpdateAvatar = (userInformation) => {
+    api.sendUserAvatarLink(userInformation.avatar)
+      .then((userInformation) => {
+        setCurrentUser(userInformation);
+        closeAllPopups();
+      })
+      .catch((error) => {
+        console.log(`К сожалению, возникла ошибка: ${error}`);
+      })
+
+  };
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -100,21 +113,16 @@ function App() {
         <Footer />
 
         <EditProfilePopup
-        isOpen={isEditProfilePopupOpen}
-        onClose={closeAllPopups}
-        onUpdateUser={handleUpdateUser}
+          isOpen={isEditProfilePopupOpen}
+          onClose={closeAllPopups}
+          onUpdateUser={handleUpdateUser}
         />
 
-        <PopupWithForm
-          name="edit-avatar"
-          title="Обновить аватар"
-          buttonText="Сохранить"
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-        >
-          <input className="popup__input popup__input_type_avatar" id="avatar" name="avatar" type="url" placeholder="Ссылка на новое фото профиля" required />
-          <span className="popup__error popup__error_visible avatar-error"></span>
-        </PopupWithForm>
+        <EditAvatarPopup
+        isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}
+        onUpdateAvatar={handleUpdateAvatar}
+        />
 
         <PopupWithForm
           name="add"
