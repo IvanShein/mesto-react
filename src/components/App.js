@@ -7,6 +7,7 @@ import ImagePopup from './ImagePopup';
 import { useEffect, useState } from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import api from '../utils/Api.js';
+import EditProfilePopup from './EditProfilePopup';
 
 function App() {
 
@@ -69,6 +70,18 @@ function App() {
       })
   };
 
+  const handleUpdateUser = (userInformation) => {
+    api.sendUserInformation(userInformation.name, userInformation.about)
+        .then((userInformation) => {
+            setCurrentUser(userInformation);
+            closeAllPopups();
+        })
+        .catch((error) => {
+          console.log(`К сожалению, возникла ошибка: ${error}`);
+        })
+
+};
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -86,18 +99,11 @@ function App() {
 
         <Footer />
 
-        <PopupWithForm
-          name="edit"
-          title="Редактировать профиль"
-          buttonText="Сохранить"
-          isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-        >
-          <input className="popup__input popup__input_type_name" id="name" name="name" type="text" placeholder="Имя" minLength="2" maxLength="40" required />
-          <span className="popup__error popup__error_visible name-error"></span>
-          <input className="popup__input popup__input_type_description" id="about" name="about" type="text" placeholder="Вид деятельности" minLength="2" maxLength="200" required />
-          <span className="popup__error popup__error_visible about-error"></span>
-        </PopupWithForm>
+        <EditProfilePopup
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
+        onUpdateUser={handleUpdateUser}
+        />
 
         <PopupWithForm
           name="edit-avatar"
