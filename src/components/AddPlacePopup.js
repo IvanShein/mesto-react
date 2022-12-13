@@ -26,18 +26,18 @@ function AddPlacePopup(props) {
 
   return (
     <PopupWithForm
-    name="add"
-    title="Новое место"
-    buttonText="Создать"
-    isOpen={props.isOpen}
-    onClose={props.onClose}
-    onSubmit={handleSubmit}
-  >
-    <input className="popup__input popup__input_type_place" value={cardName} onChange={handleCardNameChange} id="place" name="name" type="text" placeholder="Место" minLength="2" maxLength="30" required />
-    <span className="popup__error popup__error_visible place-error"></span>
-    <input className="popup__input popup__input_type_foto-link" value={cardLink} onChange={handleCardLinkChange} id="foto-link" name="link" type="url" placeholder="Ссылка на картинку" required />
-    <span className="popup__error popup__error_visible foto-link-error"></span>
-  </PopupWithForm>
+      name="add"
+      title="Новое место"
+      buttonText="Создать"
+      isOpen={props.isOpen}
+      onClose={props.onClose}
+      onSubmit={handleSubmit}
+    >
+      <input className="popup__input popup__input_type_place" value={cardName} onChange={handleCardNameChange} id="place" name="name" type="text" placeholder="Место" minLength="2" maxLength="30" required />
+      <span className="popup__error popup__error_visible place-error"></span>
+      <input className="popup__input popup__input_type_foto-link" value={cardLink} onChange={handleCardLinkChange} id="foto-link" name="link" type="url" placeholder="Ссылка на картинку" required />
+      <span className="popup__error popup__error_visible foto-link-error"></span>
+    </PopupWithForm>
 
   );
 }

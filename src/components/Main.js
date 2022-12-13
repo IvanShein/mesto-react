@@ -9,7 +9,7 @@ class Main extends React.Component {
   };
 
   render() {
-     return (
+    return (
       <main className="content">
         <section className="profile">
           <div className="profile__avatar-container" >
