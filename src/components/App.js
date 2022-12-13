@@ -58,7 +58,10 @@ function App() {
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-      });
+      })
+      .catch((error) => {
+        console.log(`К сожалению, возникла ошибка: ${error}`);
+      })
   };
 
   const handleCardDelete = (card) => {
@@ -92,7 +95,6 @@ function App() {
       .catch((error) => {
         console.log(`К сожалению, возникла ошибка: ${error}`);
       })
-
   };
 
   const handleAddPlaceSubmit = (cardInformation) => {

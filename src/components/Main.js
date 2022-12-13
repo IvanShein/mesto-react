@@ -29,7 +29,7 @@ class Main extends React.Component {
         </section>
 
         <section className="elements">
-          <ul className="cards">
+          <div className="cards">
 
             {this.props.cards.map((card) => (
               <Card card={card}
@@ -40,7 +40,7 @@ class Main extends React.Component {
               />
             ))}
 
-          </ul>
+          </div>
         </section>
       </main>
     );

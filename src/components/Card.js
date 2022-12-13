@@ -30,9 +30,9 @@ class Card extends React.Component {
     );
 
     return (
-      <li key={this.props.card._id} id="container" className="cards__item">
+      <div key={this.props.card._id} id="container" className="cards__item">
         <a href="#" className="cards__foto-button" onClick={this.handleClick}>
-          <img className="cards__image" src={this.props.card.link} alt={this.props.card.name} />
+          <img className="cards__image" src={this.props.card.link} alt={`Изображение из карточки ${this.props.card.name}`} />
         </a>
         <div className="cards__info">
           <h2 className="cards__title">{this.props.card.name}</h2>
@@ -50,7 +50,7 @@ class Card extends React.Component {
             onClick={this.handleDeleteClick}>
           </button>
         </div>
-      </li>
+      </div>
     );
   }
 }
